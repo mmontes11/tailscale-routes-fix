@@ -4,7 +4,7 @@ A bash script to override the routing table on Linux once --accept-routes is spe
 
 __Inspired by this Ansible role: [ironicbadger/tailscale-routes-fix](https://github.com/ironicbadger/tailscale-routes-fix)__
 
-More infor can be found in the [Tailscale documentation](https://tailscale.com/kb/1023/troubleshooting#lan-traffic-prioritization-with-overlapping-subnet-routes).
+More information about this issue can be found in the [Tailscale documentation](https://tailscale.com/kb/1023/troubleshooting#lan-traffic-prioritization-with-overlapping-subnet-routes).
 
 ## Usage
 
