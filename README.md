@@ -11,7 +11,24 @@ curl -sfL https://raw.githubusercontent.com/mmontes11/tailscale-routes-fix/main/
   sudo env LAN_SUBNET="10.0.0.0/24" ROUTES_TABLE="main" bash
 ```
 
-This will create a systemd service to setup the IP rule on boot and therefore fixing the routing table for Tailscale.
+This will create a systemd service to setup the IP rule on boot and therefore fixing the routing table for Tailscale:
+
+```bash
+sudo systemctl status tailscale-routes-fix
+* tailscale-routes-fix.service - Add custom IP rule at boot for Tailscale
+     Loaded: loaded (/etc/systemd/system/tailscale-routes-fix.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Sat 2025-03-08 21:02:04 CET; 30s ago
+    Process: 12285 ExecStart=/sbin/ip rule add to 10.0.0.0/24 priority 2500 lookup main (code=exited, sta>
+   Main PID: 12285 (code=exited, status=0/SUCCESS)
+        CPU: 10ms
+
+Mar 08 21:02:04 gateway systemd[1]: Starting Add custom IP rule at boot for Tailscale...
+Mar 08 21:02:04 gateway systemd[1]: Finished Add custom IP rule at boot for Tailscale.
+
+ip rule
+0:      from all lookup local
+2500:   from all to 10.0.0.0/24 lookup main
+```
 
 ## Cleanup
 
