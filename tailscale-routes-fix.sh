@@ -9,7 +9,7 @@ if [[ -z "$LAN_SUBNET" ]]; then
   exit 1
 fi
 ROUTES_TABLE=${ROUTES_TABLE:-main}
-SERVICE_NAME="tailscale-ip-rule"
+SERVICE_NAME="tailscale-routes-fix"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 
 echo "Creating systemd service file..."
