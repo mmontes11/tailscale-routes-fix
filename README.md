@@ -28,6 +28,12 @@ Mar 08 21:02:04 gateway systemd[1]: Finished Add custom IP rule at boot for Tail
 ip rule
 0:      from all lookup local
 2500:   from all to 10.0.0.0/24 lookup main
+5210:   from all fwmark 0x80000/0xff0000 lookup main
+5230:   from all fwmark 0x80000/0xff0000 lookup default
+5250:   from all fwmark 0x80000/0xff0000 unreachable
+5270:   from all lookup 52
+32766:  from all lookup main
+32767:  from all lookup default
 ```
 
 ## Cleanup
